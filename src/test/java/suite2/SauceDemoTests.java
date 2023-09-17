@@ -1,5 +1,7 @@
 package suite2;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -33,7 +35,7 @@ public class SauceDemoTests {
 		};
 		try {
 			Thread.sleep(1000);
-			WebDriverWait wait = new WebDriverWait(driver, 30);
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 			wait.until(expectation);
 		} catch (Throwable error) {
 			Assert.fail("Timeout waiting for Page Load Request to complete.");
@@ -45,6 +47,7 @@ public class SauceDemoTests {
 	public void open() {
 		driver.get(url); 
 		waitForPageLoaded();
+		sleep(3000);
 		String title = driver.getTitle();
 		System.out.println(title);
 		//My Store
@@ -59,7 +62,7 @@ public class SauceDemoTests {
 		driver.findElement(By.id("user-name")).sendKeys("standard_user");
 		driver.findElement(By.id("password")).sendKeys("secret_sauce");
 		driver.findElement(By.className("btn_action")).click();
-		AssertJUnit.assertTrue(driver.findElement(By.className("product_label")).getText()
+		AssertJUnit.assertTrue(driver.findElement(By.className("title")).getText()
 				.equals("Products"));
 	}
 
@@ -96,4 +99,12 @@ public class SauceDemoTests {
 	public void afterTest() {
 		driver.quit();			
 	}
+	
+    public void sleep(long time) {
+    	try {
+    		Thread.sleep(time);
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    }
 }

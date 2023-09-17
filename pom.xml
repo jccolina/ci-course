@@ -7,8 +7,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<properties>
-		<selenium.version>3.14.0</selenium.version>
-		<testng.version>6.9.10</testng.version>
+		<selenium.version>4.12.1</selenium.version>
+		<testng.version>7.8.0</testng.version>
 	</properties>
 
 	<dependencies>
@@ -49,8 +49,6 @@
 					<configuration>	        
 						<skipTests>false</skipTests>    
 					</configuration>
-					<parallel>methods</parallel>
-					<threadCount>2</threadCount>
 					<suiteXmlFiles>
 						<suiteXmlFile>testng.xml</suiteXmlFile>
 					</suiteXmlFiles>

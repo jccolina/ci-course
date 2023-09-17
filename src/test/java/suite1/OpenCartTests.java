@@ -32,6 +32,7 @@ public class OpenCartTests {
 	@Test
 	public void launchSite() {
 		driver.get(url); 
+		sleep(3000);
 		String title = driver.getTitle();
 		//Your Store
 		AssertJUnit.assertTrue(title.equals("Your Store"));
@@ -93,5 +94,11 @@ public class OpenCartTests {
 		driver.quit();			
 	}	
 
-
+    public void sleep(long time) {
+    	try {
+    		Thread.sleep(time);
+    	} catch(Exception e) {
+    		e.printStackTrace();
+    	}
+    }
 }
